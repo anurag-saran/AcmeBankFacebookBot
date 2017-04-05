@@ -4,7 +4,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
-const token = "EAAIcafZCpxA0BAPRngP8tS1ZBEzCtG2CyHArOhznQ0f1KveZC8ROm5GLl6zpM7k2EMhrTx4oGrcbWLaGLZBZCZC5ZCDqyDITEERRQdJfEGHEcMyRvKRRN1TQpzFzUHyCqbZAsBplOmaSZB4Q6je1vUJTiKu0gZBtOZCh5MWoubiPp1mqQZDZD"
+const token = ""
 
 app.set('port', (process.env.PORT || 8080))
 
@@ -17,6 +17,11 @@ app.use(bodyParser.json())
 // Index route
 app.get('/', function (req, res) {
     res.send('Hello world, I am a chat bot')
+})
+
+// Cert route
+app.get('/.well-known/acme-challenge/G55ACucVn9mWKEDezl_8tx_q2uK3PoTNbtOhWC6twNM', function (req, res) {
+    res.send('G55ACucVn9mWKEDezl_8tx_q2uK3PoTNbtOhWC6twNM.phR2GIv3dfny0DsKDriiYdGcxcDhEjWBrp8iLYJ438k')
 })
 
 // for Facebook verification
